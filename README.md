@@ -48,7 +48,7 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Thanks to Microverse for make it possible!
-- <div>Iconos diseñados por <a href="https://www.flaticon.es/autores/justicon" title="justicon">justicon</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div>
+- <div>Icons designed by <a href="https://www.flaticon.es/autores/justicon" title="justicon">justicon</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div>
 
 ## 📝 License
 
