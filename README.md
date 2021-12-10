@@ -22,6 +22,11 @@ please note that if the cluster is stoped or doesn't exits the application will 
 3. Create the database of the project with this command `sudo -u postgres createdb framenoob_development`
 4. Now with all installations ready please start the local server with the next code `rails s`
 
+## Rspec Test
+
+1. Please run `install bundle` to install all necessary gems before the test
+2. You can run `rspec spec` or `rails spec` to test all files
+
 ## Author
 
 👤 **Juan Felipe Gomez Tobon**
