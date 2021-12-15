@@ -1,1 +1,15 @@
 <h1>Here is all user history information</h1>
+
+<p>
+ Name: <%= @user.name %>
+</p>
+<p>
+ Bio: <%= @user.bio %>
+</p>
+<p>
+ <% @user.posts.each_with_index do |post, index| %>
+  Post #<%= index + 1 %>: title:<%= post.title %><br>
+  <%= post.text %><br>
+  comments:<%= post.comments_counter %> likes:<%= post.likes_counter %> 
+<% end %>
+</p>

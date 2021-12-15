@@ -11,4 +11,6 @@ class CreatePosts < ActiveRecord::Migration[5.2]
     end
     add_foreign_key :posts, :users, column: :author_id
   end
+  INSERT INTO posts (id, author_id, title, text, comments_counter, likes_counter, created_at, updated_at)
+  VALUES (1, 1, 'my first post', 'dancing its great', 4, 1, '2021-12-14', '2021-12-14');
 end
