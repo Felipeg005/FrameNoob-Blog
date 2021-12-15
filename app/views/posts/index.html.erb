@@ -1,1 +1,14 @@
 <h1>Here is a list of posts for a given user</h1>
+
+<h2>
+ <% @posts.each_with_index do |post, index| %>
+  Post #<%= index + 1 %>:<br>
+  title: <%= post.title %><br>
+  <%= post.text %><br>
+  comments:<%= post.comments_counter %><br>
+  likes:<%= post.likes_counter %><br>
+  <% post.comments.each_with_index do |comment, index| %>
+  <%= User.find(comment.author_id).name %>:  <%= comment.text %> comment #<%= index + 1 %>
+  <% end %>
+<% end %>
+</h2>
