@@ -1,4 +1,4 @@
-<h1>Here is all user history information</h1>
+<h1>Here is all <%= @user.name %> history information</h1>
 
 <p>
  Name: <%= @user.name %>
@@ -10,6 +10,6 @@
  <% @user.posts.each_with_index do |post, index| %>
   Post #<%= index + 1 %>: title:<%= post.title %><br>
   <%= post.text %><br>
-  comments:<%= post.comments_counter %> likes:<%= post.likes_counter %> 
-<% end %>
+  comments:<%= post.comments_counter %> likes:<%= post.likes_counter %><br><br>
+<% end %><br><br>
 </p>

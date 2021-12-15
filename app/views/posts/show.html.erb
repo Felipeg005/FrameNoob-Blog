@@ -1,1 +1,10 @@
-<h1>Here is the information for a given post</h1>
+<h1>Here is the information for Post #<%= @post.id %></h1>
+
+<h2>
+  Post #<%= @post.id %> by <%= User.find(@post.author_id).name %>:<br>
+  Title: <%= @post.title %><br>
+  comments:<%= @post.comments_counter %>  likes:<%= @post.likes_counter %><br>
+  <% @post.comments.each_with_index do |comment, index| %>
+  <%= User.find(comment.author_id).name %>:  <%= comment.text %>
+  <% end %><br><br>
+</h2>
