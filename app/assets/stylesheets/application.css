@@ -1,15 +1,59 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.users-container,
+.bio-container,
+.posts-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  border: 1px solid black;
+}
+
+.users-container:hover,
+.posts-container:hover {
+  background-color: rgba(24, 0, 0, 0.055);
+  transition: 0.5s;
+}
+
+.comments-container {
+  margin-top: 10px;
+  border: 1px solid black;
+}
+
+.user-photo {
+  margin: 30px 30px;
+  border: 1px solid black;
+  height: 60px;
+  width: 60px;
+}
+
+.text-usercard-index,
+.post-footer-text {
+  margin: 15px 30px 0 auto;
+}
+
+.text-bio {
+  margin-left: 15px;
+}
+
+.posts-title-container {
+  margin: 15px 15px;
+}
+
+.text-post {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.see-all-posts-btn {
+  text-align: center;
+}
+
+.comments-text {
+  margin: 10px 15px;
+}

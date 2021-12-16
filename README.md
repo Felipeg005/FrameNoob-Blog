@@ -19,8 +19,12 @@ please note that if the cluster is stoped or doesn't exits the application will 
 
 1. Clone this repository in your local. `git clone https://github.com/Felipeg005/FrameNoob-Blog`
 2. Checkout the correct branch `git checkout <desired branch>`
-3. Create the database of the project with this command `sudo -u postgres createdb framenoob_development`
+3. Create the database of the project and load default data in db/seed.rb with this command
+  `rails db:setup`
 4. Now with all installations ready please start the local server with the next code `rails s`
+5. Please if you want to populate the database with more information do it in ypur own branch in
+the seed.rb file and run the command
+  `rails db:reset`
 
 ## Rspec Test
 
