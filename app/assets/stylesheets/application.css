@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+ a {
+  text-decoration: none;
+  color: black;
+}
 
 .users-container,
 .bio-container,
@@ -21,6 +25,12 @@
   align-items: center;
   margin-top: 10px;
   border: 1px solid black;
+}
+
+.users-container:hover,
+.posts-container:hover {
+  background-color: rgba(24, 0, 0, 0.055);
+  transition: 0.5s;
 }
 
 .comments-container {
