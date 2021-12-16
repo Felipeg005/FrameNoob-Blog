@@ -57,3 +57,8 @@ a {
 .comments-text {
   margin: 10px 15px;
 }
+
+.add-new-post-btn {
+  margin: 20px 0;
+  text-align: center;
+}

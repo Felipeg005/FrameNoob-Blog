@@ -12,6 +12,7 @@
    <%= @user.bio %>
   </p>
 </div>
+<div class="add-new-post-btn"><button>Add a new post</button></div>
 <% @user.posts.each_with_index do |post, index| %>
 <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
   <div class="posts-container">
