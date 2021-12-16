@@ -1,5 +1,6 @@
 <h1>Here is all <%= @user.name %> history information</h1>
 
+<a href="/users"><div class="see-all-posts-btn"><button>Go Back</button></div></a>
 <div class="users-container">
   <img class="user-photo" src="<%= @user.photo %>"><br>
   <h2><%= @user.name %></h2><br>
@@ -19,5 +20,5 @@
   </div>
   <p class="post-footer-text">comments:<%= post.comments_counter %> likes:<%= post.likes_counter %></p><br><br>
 </div>
-  <% end %><br><br>
-<div class="see-all-posts-btn"><button>See all Posts</button></div>
+<% end %><br><br>
+<a href="/users/<%= @user.id %>/posts"><div class="see-all-posts-btn"><button>See all Posts</button></div></a>

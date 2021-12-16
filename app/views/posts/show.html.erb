@@ -1,5 +1,6 @@
 <h1>Here is the information for Post #<%= @post.id %></h1>
 
+<a href="/users/<%= User.find(@post.author_id).id %>/posts/"><div class="see-all-posts-btn"><button>Go Back</button></div></a>
 <div class="posts-container">
   <div class="posts-title-container">
     Post #<%= @post.id %>:<br><br>
