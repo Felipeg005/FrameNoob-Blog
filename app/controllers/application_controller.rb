@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   def current_user
-    # should return the first user from a database
-    User.first
+    @current_user = User.find(session[:id])
   end
 end

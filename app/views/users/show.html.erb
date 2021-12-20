@@ -12,7 +12,8 @@
    <%= @user.bio %>
   </p>
 </div>
-<div class="add-new-post-btn"><button>Add a new post</button></div>
+
+<a href="/users/<%= @user.id %>/new"><div class="add-new-post-btn"><button><%= link_to 'New Post', new_post_path %></button></div></a>
 <% @user.posts.each_with_index do |post, index| %>
 <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
   <div class="posts-container">
