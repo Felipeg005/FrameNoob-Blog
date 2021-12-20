@@ -48,16 +48,16 @@ class PostsController < ApplicationController
     @comment = Comment.create!(comment_params)
     respond_to do |format|
       format.html do
-          if @post.save
+          if @comment.save
               # success message
               flash[:success] = "Post saved successfully"
               # redirect to index
-              redirect_to "/users/#{@post.author_id}/posts"
+              redirect_to "/users/#{@comment.author_id}/posts/#{@comment.post_id}"
           else
               # error message
               flash.now[:error] = "Error:  Post could not be saved"
               # render new
-              render :new, locals: { post: @post }
+              render :new, locals: { post: @comment }
           end
       end
     end
@@ -67,9 +67,9 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:author_id, :title, :text, :comments_counter, :likes_counter)
   end
-  
-  def post_params
-    params.require(:post).permit(:author_id, :title, :text, :comments_counter, :likes_counter)
+
+  def comments_params
+    params.require(:post).permit(:post_id, :author_id, :text, :comments_counter, :likes_counter)
   end
 
 
