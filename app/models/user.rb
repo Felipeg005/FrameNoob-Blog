@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   def self.update_post_counter(id)
     # A method that updates the posts counter for a user.
-    User.find(id).update(posts_counter: (User.sum(:posts_counter) + 1))
+    @user = User.find(id)
+    @user.update(posts_counter: (@user.posts_counter + 1))
   end
 end

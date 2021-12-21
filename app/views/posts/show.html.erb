@@ -8,7 +8,7 @@
     Title: <%= @post.title %><br><br>
     <%= @post.text %><br>
   </div>
-  <p class="post-footer-text">comments:<%= @post.comments_counter %> likes:<%= @post.likes_counter %></p><br><br>
+  <p class="post-footer-text">comments:<%= @post.comments_counter %> likes:<%= @post.likes_counter %></p><%= button_to "Like", new_like_path, params: { like: {author_id: @post.author_id, post_id: @post.id } }, method: :post %><br><br>
 </div>
 <%= render :partial => 'comments/new' %>
   <% @post.comments.each_with_index do |comment, index| %>

@@ -10,11 +10,13 @@ class Post < ApplicationRecord
 
   def self.update_comments_counter(id)
     # A method that updates the comments counter for a post.
-    Post.find(id).update(comments_counter: (User.sum(:comments_counter) + 1))
+    @post = Post.find(id)
+    @post.update(comments_counter: (@post.comments_counter + 1))
   end
 
   def self.update_likes_counter(id)
     # A method that updates the comments counter for a post.
-    Post.find(id).update(likes_counter: (User.sum(:likes_counter) + 1))
+    @post = Post.find(id)
+    @post.update(likes_counter: (@post.likes_counter + 1))
   end
 end

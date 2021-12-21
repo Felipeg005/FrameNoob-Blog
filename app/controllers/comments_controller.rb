@@ -24,6 +24,7 @@ class CommentsController < ApplicationController
         end
       end
     end
+    Post.update_comments_counter(@comment.post_id)
   end
     private
 
