@@ -7,4 +7,9 @@ class User < ApplicationRecord
     # A method that returns the 3 most recent posts for a given user.
     User.order(created_at: :asc).limit(3)
   end
+
+  def self.update_post_counter(id)
+    # A method that updates the posts counter for a user.
+    User.find(id).update(posts_counter: (User.sum(:posts_counter) + 1))
+  end
 end

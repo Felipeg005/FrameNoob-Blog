@@ -33,6 +33,7 @@ class PostsController < ApplicationController
           end
       end
     end
+    User.update_post_counter(@post.author_id)
   end
 
   private
