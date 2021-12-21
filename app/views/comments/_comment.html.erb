@@ -1,0 +1,12 @@
+<%= form_with model: Comment.new, url: "/users/#{params[:id]}/posts/#{params[:post_id]}/new/", method: :post, local: true do |f| %>
+  <%= f.hidden_field :author_id, value: params[:id] %><br>
+  <%= f.hidden_field :post_id, value: params[:post_id] %><br>
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

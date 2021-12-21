@@ -5,8 +5,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:post_id])
   end
     
   def new
@@ -36,41 +35,8 @@ class PostsController < ApplicationController
     end
   end
 
-  def new_comment
-    @comment = Comment.new
-    respond_to do |format|
-      format.html { render :new_comment }
-    end
-  end
-
-  def create_commment
-    @user = current_user
-    @comment = Comment.create!(comment_params)
-    respond_to do |format|
-      format.html do
-          if @comment.save
-              # success message
-              flash[:success] = "Post saved successfully"
-              # redirect to index
-              redirect_to "/users/#{@comment.author_id}/posts/#{@comment.post_id}"
-          else
-              # error message
-              flash.now[:error] = "Error:  Post could not be saved"
-              # render new
-              render :new, locals: { post: @comment }
-          end
-      end
-    end
-  end
-
   private
   def post_params
     params.require(:post).permit(:author_id, :title, :text, :comments_counter, :likes_counter)
   end
-
-  def comments_params
-    params.require(:post).permit(:post_id, :author_id, :text, :comments_counter, :likes_counter)
-  end
-
-
 end

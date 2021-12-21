@@ -1,5 +1,4 @@
 <h1>Here is the information for Post #<%= @post.id %></h1>
-<h1><%= @user.id %></h1>
 
 
 <a href="/users/<%= User.find(@post.author_id).id %>/posts/"><div class="see-all-posts-btn"><button>Go Back</button></div></a>
@@ -11,7 +10,7 @@
   </div>
   <p class="post-footer-text">comments:<%= @post.comments_counter %> likes:<%= @post.likes_counter %></p><br><br>
 </div>
-<%= render :partial => 'posts/new_comment' %>
+<%= render :partial => 'comments/new' %>
   <% @post.comments.each_with_index do |comment, index| %>
   <div class="comments-container">
   <p class="comments-text"><%= User.find(comment.author_id).name %>:  <%= comment.text %> //  comment #<%= index + 1 %></p>
