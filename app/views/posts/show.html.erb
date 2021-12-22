@@ -10,7 +10,7 @@
   </div>
   <p class="post-footer-text">comments:<%= @post.comments_counter %> likes:<%= @post.likes_counter %></p><%= button_to "Like", new_like_path, params: { like: {author_id: @post.author_id, post_id: @post.id } }, method: :post %><br><br>
 </div>
-<%= render :partial => 'comments/new' %>
+<div class="form-container"><%= render :partial => 'comments/new' %></div>
   <% @post.comments.each_with_index do |comment, index| %>
   <div class="comments-container">
   <p class="comments-text"><%= User.find(comment.author_id).name %>:  <%= comment.text %> //  comment #<%= index + 1 %></p>

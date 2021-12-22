@@ -12,7 +12,7 @@
    <%= @user.bio %>
   </p>
 </div>
-<%= render :partial => 'posts/new' %>
+<div class="form-container"><%= render :partial => 'posts/new' %></div>
 <% @user.posts.each_with_index do |post, index| %>
 <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
   <div class="posts-container">
