@@ -57,3 +57,21 @@ a {
 .comments-text {
   margin: 10px 15px;
 }
+
+.add-new-post-btn {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.new-post-title {
+  text-align: center;
+  margin-bottom: -50px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  margin: 5px 0;
+}

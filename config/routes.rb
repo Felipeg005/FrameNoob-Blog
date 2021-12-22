@@ -5,5 +5,12 @@ Rails.application.routes.draw do
   get "/users/", to: "users#index"
   get "/users/:id", to: "users#show"
   get "/users/:id/posts/", to: "posts#index"
-  get "/users/:id/posts/:id", to: "posts#show"
+  get "/users/:id/posts/:post_id", to: "posts#show"
+  get 'users/:id/new', to: 'posts#new', as: 'new_post'
+  get 'users/:id/posts/:post_id/new', to: 'comments#new', as: 'new_comment'
+  get 'users/:id/posts/:post_id/new_like', to: 'likes#new', as: 'new_like'
+
+  post 'users/:id/new', to: 'posts#create'
+  post 'users/:id/posts/:post_id/new', to: 'comments#create'
+  post 'users/:id/posts/:post_id/new_like', to: 'likes#create'
 end
