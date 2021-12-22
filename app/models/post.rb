@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, :likes, foreign_key: 'post_id'
+  after_save :update_post_counter
 
   def update_post_counter(id, data)
     # A method that updates the posts counter for a user.
