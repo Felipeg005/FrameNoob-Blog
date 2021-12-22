@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
           # success message
           flash[:success] = 'Post saved successfully'
           # redirect to index
-          redirect_to '/users/#{@comment.author_id}/posts/#{@comment.post_id}'
+          redirect_to "/users/#{@comment.author_id}/posts/#{@comment.post_id}"
         else
           # error message
           flash.now[:error] = 'Error:  Post could not be saved'
