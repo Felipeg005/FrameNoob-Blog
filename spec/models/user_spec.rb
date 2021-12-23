@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   subject { User.new(name:'Rudolph', photo: 'link', bio: 'I like more react', posts_counter: 0) }
+
   describe 'Testing user model creation and validations' do
     it 'Should create a user with correct name' do
       expect(subject.name).to eq('Rudolph')
@@ -31,7 +32,7 @@ RSpec.describe User, type: :model do
 
     it 'Should select only three most recent users ' do
       10.times do
-      User.create(id: (User.count + 1),name:'Rudolph', photo: 'link', bio: 'I like more react', posts_counter: 0)
+        User.create(id: (User.count + 1), name: 'Rudolph', photo: 'link', bio: 'I like more react', posts_counter: 0)
       end
       expect(User.recent_posts.count).to eq(3)
     end
