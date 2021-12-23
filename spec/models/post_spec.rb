@@ -48,11 +48,13 @@ RSpec.describe Post, type: :model do
     end
 
     it 'Should increment comment_counter after adds a new comment' do
+      Post.create(id: 1, author_id: 1, title: 'I like rails', text: 'Great framework', comments_counter: 0, likes_counter: 0)
       Post.update_comments_counter(1)
       expect(Post.first.comments_counter).to eq(1)
     end
 
     it 'Should increment likes_counter after adds a new like' do
+      Post.create(id: 1, author_id: 1, title: 'I like rails', text: 'Great framework', comments_counter: 0, likes_counter: 0)
       Post.update_likes_counter(1)
       expect(Post.first.likes_counter).to eq(1)
     end

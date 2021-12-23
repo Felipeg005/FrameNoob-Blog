@@ -2,11 +2,11 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @user = User.find(params[:id])
-    @user.includes(:posts, :comments)
   end
 
   def show
     @post = Post.find(params[:post_id])
+    User.includes(:posts, :comments)
   end
 
   def new
@@ -18,6 +18,10 @@ class PostsController < ApplicationController
 
   def create
     @user = current_user
+    puts params[:post]
+    if params[:post].empty?
+      flash[:error] = 'Please insert a post title'
+    end
     @post = Post.create!(post_params)
     respond_to do |format|
       format.html do
