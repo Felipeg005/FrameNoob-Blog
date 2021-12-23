@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject {Post.new(author_id: 1, title: 'I like rails', text: 'Great framework', comments_counter: 0, likes_counter: 0) }
+  subject { Post.new(author_id: 1, title: 'I like rails', text: 'Great framework', comments_counter: 0, likes_counter: 0) }
   describe 'Testing Post model creation and validations' do
     it 'Should create a post with correct author_id' do
       expect(subject.author_id).to eq(1)
