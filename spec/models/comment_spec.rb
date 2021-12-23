@@ -6,9 +6,11 @@ RSpec.describe Comment, type: :model do
     it 'Should create a comment with correct author_id' do
       expect(subject.author_id).to eq(1)
     end
+
     it 'Should create a comment with correct post_id' do
       expect(subject.post_id).to eq(1)
     end
+    
     it 'Should create a comment with correct text' do
       expect(subject.text).to be_kind_of(String)
     end

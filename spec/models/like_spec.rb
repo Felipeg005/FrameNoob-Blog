@@ -6,6 +6,7 @@ RSpec.describe Like, type: :model do
     it 'Should create a like with correct author_id' do
       expect(subject.author_id).to eq(1)
     end
+    
     it 'Should create a like with correct post_id' do
       expect(subject.post_id).to eq(1)
     end
