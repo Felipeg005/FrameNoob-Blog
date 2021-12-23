@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject { Post.new( author_id: 1,
+  subject { Post.new(
+    author_id: 1,
     title: 'I like rails',
     text: 'Great framework',
     comments_counter: 0,
