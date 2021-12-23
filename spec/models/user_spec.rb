@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(name:'Rudolph', photo: 'link', bio: 'I like more react', posts_counter: 0) }
+  subject { User.new(name: 'Rudolph', photo: 'link', bio: 'I like more react', posts_counter: 0) }
 
   describe 'Testing user model creation and validations' do
     it 'Should create a user with correct name' do

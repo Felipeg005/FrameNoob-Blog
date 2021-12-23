@@ -36,8 +36,13 @@ RSpec.describe Post, type: :model do
   describe 'Test post model methods' do
     it 'Should select only five most recent posts ' do
       10.times do
-      Post.create(author_id: 1, title: 'I like rails', text: 'Great framework',
-        comments_counter: 0, likes_counter: 0)
+      Post.create(
+        author_id: 1,
+        title: 'I like rails',
+        text: 'Great framework',
+        comments_counter: 0,
+        likes_counter: 0
+      )
       end
       expect(Post.recent_comments.count).to eq(5)
     end
