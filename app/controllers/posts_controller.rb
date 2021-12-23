@@ -18,27 +18,28 @@ class PostsController < ApplicationController
 
   def create
     @user = current_user
-    puts params[:post]
-    if params[:post].empty?
-      flash[:error] = 'Please insert a post title'
-    end
-    @post = Post.create!(post_params)
-    respond_to do |format|
-      format.html do
-        if @post.save
-          # success message
-          flash[:success] = 'Post saved successfully'
-          # redirect to index
-          redirect_to "/users/#{@post.author_id}/posts"
-        else
-          # error message
-          flash.now[:error] = 'Error:  Post could not be saved'
-          # render new
-          render :new, locals: { post: @post }
+    if Post.new(post_params).invalid?
+      flash[:notice]  = 'The post was not saved for incorrect data'
+      redirect_to "/users/#{@user.id}/"
+    else
+      @post = Post.create!(post_params)
+      respond_to do |format|
+        format.html do
+          if @post.save
+            # success message
+            flash[:success] = 'Post saved successfully'
+            # redirect to index
+            redirect_to "/users/#{@post.author_id}/"
+          else
+            # error message
+            flash.now[:error] = 'Error:  Post could not be saved'
+            # render new
+            render :new, locals: { post: @post }
+          end
         end
       end
+      User.update_post_counter(@post.author_id)
     end
-    User.update_post_counter(@post.author_id)
   end
 
   private
