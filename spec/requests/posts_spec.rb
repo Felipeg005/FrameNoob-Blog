@@ -22,6 +22,7 @@ RSpec.describe PostsController, type: :request do
   end
 
   describe 'Testing posts show action, controller, routes and views' do
+    Post.create(author_id: 1, title: 'I like rails', text: 'Great framework', comments_counter: 0, likes_counter: 0)
     it 'checks if response status was correct' do
       get '/users/1/posts/1'
       expect(response).to be_successful

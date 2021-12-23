@@ -25,14 +25,13 @@ RSpec.describe User, type: :model do
 
   describe 'Test user model methods' do
     it 'Should increment posts_counter after adds a new post' do
-      user = User.create(name:'Rudolph', photo: 'link', bio: 'I like more react', posts_counter: 0)
       User.update_post_counter(1)
       expect(User.first.posts_counter).to eq(1)
     end
 
     it 'Should select only three most recent users ' do
       10.times do
-      User.create(name:'Rudolph', photo: 'link', bio: 'I like more react', posts_counter: 0)
+      User.create(id: (User.count + 1),name:'Rudolph', photo: 'link', bio: 'I like more react', posts_counter: 0)
       end
       expect(User.recent_posts.count).to eq(3)
     end
