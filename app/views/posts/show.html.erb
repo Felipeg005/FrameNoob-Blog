@@ -1,6 +1,4 @@
 <h1>Here is the information for Post #<%= @post.id %></h1>
-
-
 <a href="/users/<%= User.find(@post.author_id).id %>/posts/"><div class="see-all-posts-btn"><button>Go Back</button></div></a>
 <div class="posts-container">
   <div class="posts-title-container">
@@ -10,6 +8,11 @@
   </div>
   <p class="post-footer-text">comments:<%= @post.comments_counter %> likes:<%= @post.likes_counter %></p><%= button_to "Like", new_like_path, params: { like: {author_id: @post.author_id, post_id: @post.id } }, method: :post %><br><br>
 </div>
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
 <div class="form-container"><%= render :partial => 'comments/new' %></div>
   <% @post.comments.each_with_index do |comment, index| %>
   <div class="comments-container">

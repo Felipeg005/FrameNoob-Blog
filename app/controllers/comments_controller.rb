@@ -8,23 +8,28 @@ class CommentsController < ApplicationController
 
   def create
     @user = current_user
-    @comment = Comment.create!(comment_params)
-    respond_to do |format|
-      format.html do
-        if @comment.save
-          # success message
-          flash[:success] = 'Post saved successfully'
-          # redirect to index
-          redirect_to "/users/#{@comment.author_id}/posts/#{@comment.post_id}"
-        else
-          # error message
-          flash.now[:error] = 'Error:  Post could not be saved'
-          # render new
-          render :new, locals: { post: @comment }
+    if Comment.new(comment_params).invalid?
+      flash[:notice] = 'The comment was not saved for incorrect data'
+      redirect_to "/users/#{@user.id}/posts/#{params[:post_id]}"
+    else
+      @comment = Comment.create!(comment_params)
+      respond_to do |format|
+        format.html do
+          if @comment.save
+            # success message
+            flash[:success] = 'Post saved successfully'
+            # redirect to index
+            redirect_to "/users/#{@comment.author_id}/posts/#{@comment.post_id}"
+          else
+            # error message
+            flash.now[:error] = 'Error:  Post could not be saved'
+            # render new
+            render :new, locals: { post: @comment }
+          end
         end
       end
+      Post.update_comments_counter(@comment.post_id)
     end
-    Post.update_comments_counter(@comment.post_id)
   end
 
   private
