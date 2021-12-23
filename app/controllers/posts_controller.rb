@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   def create
     @user = current_user
     if Post.new(post_params).invalid?
-      flash[:notice]  = 'The post was not saved for incorrect data'
+      flash[:notice] = 'The post was not saved for incorrect data'
       redirect_to "/users/#{@user.id}/"
     else
       @post = Post.create!(post_params)

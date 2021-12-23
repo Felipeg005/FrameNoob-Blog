@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   def create
     @user = current_user
     if Comment.new(comment_params).invalid?
-      flash[:notice]  = 'The comment was not saved for incorrect data'
+      flash[:notice] = 'The comment was not saved for incorrect data'
       redirect_to "/users/#{@user.id}/posts/#{params[:post_id]}"
     else
       @comment = Comment.create!(comment_params)
