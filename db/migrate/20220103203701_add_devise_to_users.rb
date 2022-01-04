@@ -22,6 +22,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
       # t.inet     :last_sign_in_ip
 
       ## Confirmable
+      t.confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at
       # t.datetime :confirmation_sent_at
