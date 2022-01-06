@@ -10,4 +10,3 @@ User.create(id: 1, name: "Rudolph", photo: "link#", bio: "I love dancing", posts
 User.create(id: 2, name: "Stella", photo: "link#", bio: "I love hiking", posts_counter: 0, email: "2@gmail.com", password: "1234567")
 User.create(id: 3, name: "Bill", photo: "link#", bio: "My favorite movie its Pan's Labyrinth", posts_counter: 0, email: "3@gmail.com", password: "1234567")
 User.create(id: 4, name: "Elisa", photo: "link#", bio: "Life is wonderful, I'm here to learn", posts_counter: 0, email: "4@gmail.com", password: "1234567")
-p "#{User.count} users created"

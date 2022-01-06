@@ -2,15 +2,6 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :feature do
   describe 'Testing Login index action, controller, routes and view' do
-    # before(:each) do
-    #   visit '/users/sign_in'
-    #   within("#new_user") do
-    #     fill_in 'user_email', with: '1@gmail.com'
-    #     fill_in 'user_password', with: '1234567'
-    #   end
-    #   click_button 'Log in'
-    # end
-
     it 'checks if page status was correct' do
       visit '/users/sign_in'
       expect(page).to have_http_status(:ok)
@@ -49,10 +40,10 @@ RSpec.describe PostsController, type: :feature do
         fill_in 'user_email', with: '1@gmail.com'
         fill_in 'user_password', with: '1234567'
       end
+      
       click_button 'Log in'
       expect(page).to have_current_path('/')
     end
-
   end
 end
 
