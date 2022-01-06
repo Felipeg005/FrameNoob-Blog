@@ -19,7 +19,7 @@ please note that if the cluster is stoped or doesn't exits the application will 
 
 1. Clone this repository in your local. `git clone https://github.com/Felipeg005/FrameNoob-Blog`
 2. Checkout the correct branch `git checkout <desired branch>`
-3. Please run `install bundle` to install all necessary gems before set up the database
+3. Please run `bundle install` to install all necessary gems before set up the database
 4. Create the database of the project and load default data in db/seed.rb with this command
   `rails db:setup`
 5. Now with all installations ready please start the local server with the next code `rails s`
@@ -29,7 +29,7 @@ the seed.rb file and run the command
 
 ## Rspec Test
 
-1. Please run `install bundle` to install all necessary gems before the test
+1. Please run `bundle install` to install all necessary gems before the test
 2. You can run `rspec spec` or `rails spec` to test all files
 
 ## Author
