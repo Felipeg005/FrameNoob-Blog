@@ -1,0 +1,4 @@
+<% name = current_user.present? ? current_user.email : 'Please Sign in or Register to enter the blog' %>
+
+<h1>Welcome, <%= name %> </h1>
+<a href="/users/"><div class="see-all-posts-btn"><button>See All Users</button></div></a>
