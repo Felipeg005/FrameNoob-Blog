@@ -23,4 +23,6 @@ Rails.application.routes.draw do
   post 'users/:id/posts/:post_id/new_like', to: 'likes#create'
 
   #Endpoints
+
+  get '/api/users/:id/posts', to: "posts#index"
 end

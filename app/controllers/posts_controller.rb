@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @posts = Post.all
     @user = User.find(params[:id])
+
+    render json: @posts
   end
 
   def show
