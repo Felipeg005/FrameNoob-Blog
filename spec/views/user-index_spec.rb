@@ -25,6 +25,12 @@ RSpec.describe PostsController, type: :feature do
       visit '/users/'
       expect(page).to have_content('Number of Posts', count: 4)
     end
+
+    it 'checks if click on a user, I am redirected to that users show page' do
+      visit '/users/'
+      click_on 'Rudolph'
+      expect(page).to have_current_path('/users/1')
+    end
   end
 end
 
