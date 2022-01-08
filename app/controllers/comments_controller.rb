@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  
   def new
     @comment = Comment.new
     respond_to do |format|
@@ -12,8 +14,15 @@ class CommentsController < ApplicationController
       flash[:notice] = 'The comment was not saved for incorrect data'
       redirect_to "/users/#{@user.id}/posts/#{params[:post_id]}"
     else
-      @comment = Comment.create!(comment_params)
+      @comment = Comment.create!(comment_params.merge!(author_id: current_user))
       respond_to do |format|
+        format.json do
+          if @comment.save
+            render json: { success: true, data: { comment: @comment.text}, status: :created }
+          else
+            render json: { success: false, data: { error: "not saved", status: 400 } }
+          end
+        end
         format.html do
           if @comment.save
             # success message
@@ -35,6 +44,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:author_id, :post_id, :text)
+    params.require(:comment).permit(:id, :author_id, :post_id, :text)
   end
 end

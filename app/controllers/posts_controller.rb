@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     @posts = Post.all
     @user = User.find(params[:id])
 
-    render json: @posts
+    render json: { success: true, data: { posts: @posts } }
   end
 
   def show
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     User.includes(:posts, :comments)
 
     @comments = Comment.where(post_id: "#{params[:post_id]}")
-    render json: @comments
+    render json: { success: true, data: { posts: @comments } }
   end
 
   def new

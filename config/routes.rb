@@ -24,4 +24,5 @@ Rails.application.routes.draw do
 
   get '/api/users/:id/posts', to: "posts#index"
   get '/api/users/:id/posts/:post_id/comments', to: "posts#show"
+  post '/api/users/:id/posts/:post_id/new_comment', to: "comments#create"
 end
