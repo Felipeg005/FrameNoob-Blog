@@ -145,6 +145,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json-schema (2.8.1)
+      addressable (>= 2.4)
     jwt (2.3.0)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -229,6 +231,19 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.3)
+    rswag (2.4.0)
+      rswag-api (= 2.4.0)
+      rswag-specs (= 2.4.0)
+      rswag-ui (= 2.4.0)
+    rswag-api (2.4.0)
+      railties (>= 3.1, < 7.0)
+    rswag-specs (2.4.0)
+      activesupport (>= 3.1, < 7.0)
+      json-schema (~> 2.2)
+      railties (>= 3.1, < 7.0)
+    rswag-ui (2.4.0)
+      actionpack (>= 3.1, < 7.0)
+      railties (>= 3.1, < 7.0)
     rubyzip (2.3.2)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -307,6 +322,7 @@ DEPENDENCIES
   rails-controller-testing
   ransack!
   rspec-rails (~> 5.0, >= 5.0.2)
+  rswag
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
