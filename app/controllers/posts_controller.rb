@@ -11,6 +11,9 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:post_id])
     User.includes(:posts, :comments)
+
+    @comments = Comment.where(post_id: "#{params[:post_id]}")
+    render json: @comments
   end
 
   def new

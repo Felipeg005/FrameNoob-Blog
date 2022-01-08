@@ -4,12 +4,6 @@ Rails.application.routes.draw do
   root to: "home#index"
   get 'home/index'
   devise_for :users, skip: %i[registrations sessions passwords]
-
-  #End Points for registration and login
-  devise_scope :user do
-    post 'signup', to: 'registrations#create'
-    post 'login', to: 'sessions#create'
-  end
   get "/users/", to: "users#index"
   get "/users/:id", to: "users#show"
   get "/users/:id/posts/", to: "posts#index"
@@ -22,7 +16,12 @@ Rails.application.routes.draw do
   post 'users/:id/posts/:post_id/new', to: 'comments#create'
   post 'users/:id/posts/:post_id/new_like', to: 'likes#create'
 
-  #Endpoints
+  #Endpoints API
+  devise_scope :user do
+    post 'signup', to: 'registrations#create'
+    post 'login', to: 'sessions#create'
+  end
 
   get '/api/users/:id/posts', to: "posts#index"
+  get '/api/users/:id/posts/:post_id/comments', to: "posts#show"
 end

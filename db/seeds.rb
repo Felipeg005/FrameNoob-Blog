@@ -15,3 +15,12 @@ Post.create(id: 1, author_id: 1, title: 'I like rails', text: 'Great framework',
 Post.create(id: 2, author_id: 2, title: 'I like react', text: 'Great framework', comments_counter: 0, likes_counter: 0)
 Post.create(id: 3, author_id: 3, title: 'I like redux', text: 'Great framework', comments_counter: 0, likes_counter: 0)
 Post.create(id: 4, author_id: 4, title: 'I like jest', text: 'Great framework', comments_counter: 0, likes_counter: 0)
+
+Comment.create(id: 1, author_id: '1', post_id: '1', text: 'I like this')
+Comment.create(id: 2, author_id: '1', post_id: '1', text: 'I like that')
+Comment.create(id: 3, author_id: '2', post_id: '2', text: 'I like this')
+Comment.create(id: 4, author_id: '2', post_id: '2', text: 'I like that')
+Comment.create(id: 5, author_id: '3', post_id: '3', text: 'I like this')
+Comment.create(id: 6, author_id: '3', post_id: '3', text: 'I like that')
+Comment.create(id: 7, author_id: '4', post_id: '4', text: 'I like this')
+Comment.create(id: 8, author_id: '4', post_id: '4', text: 'I like that')
