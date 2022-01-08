@@ -53,13 +53,24 @@ RSpec.describe PostsController, type: :feature do
       Post.create(id: 1, author_id: 1, title: 'I like rails', text: 'Great framework', comments_counter: 0, likes_counter: 0)
       Comment.create(author_id: '1', post_id: '1', text: 'I like this')
       visit '/users/1/posts/'
-      expect(page).to have_content('I like this')
+      expect(page).to have_content('comments:')
     end
 
-    it 'checks if click to see all posts, it redirects me to the user posts index page' do
-      visit '/users/2/'
-      click_on 'See all Posts'
-      expect(page).to have_current_path('/users/2/posts')
+    it 'checks if see how many comments a post has' do
+      Post.create(id: 1, author_id: 1, title: 'I like rails', text: 'Great framework', comments_counter: 0, likes_counter: 0)
+      Comment.create(author_id: '1', post_id: '1', text: 'I like this')
+      visit '/users/1/posts/'
+      expect(page).to have_content('likes:')
+    end
+
+    it 'checks if click on a post, it redirects me to that posts show page' do
+      5.times do
+        Post.create(author_id: 1, title: 'I like rails', text: 'Great framework', comments_counter: 0, likes_counter: 0)
+      end
+      visit '/users/1/posts'
+      post = User.recent_posts(1).to_a
+      click_on(class: "link#{post[0].id}")
+      expect(page).to have_current_path("/users/1/posts/#{post[0].id}")
     end
   end
 end
