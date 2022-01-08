@@ -7,7 +7,7 @@
   <p class="text-usercard-index">Number of Posts: <%= @user.posts_counter %></p><br><br>
 </div>
  <% @user.posts.each_with_index do |post, index| %>
-<a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+<a class="link<%= post.id %>" href="/users/<%= @user.id %>/posts/<%= post.id %>">
   <div class="posts-container">
     <div class="posts-title-container">
       Post #<%= post.id %>:<br><br>

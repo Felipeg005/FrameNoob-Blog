@@ -30,11 +30,11 @@ RSpec.describe User, type: :model do
       expect(User.first.posts_counter).to eq(1)
     end
 
-    it 'Should select only three most recent users ' do
+    it 'Should select only three most recent posts' do
       10.times do
-        User.create(id: (User.count + 1), name: 'Rudolph', photo: 'link', bio: 'I like more react', posts_counter: 0)
+        Post.create(author_id: 1, title: 'I like rails', text: 'Great framework', comments_counter: 0, likes_counter: 0)
       end
-      expect(User.recent_posts.count).to eq(3)
+      expect(User.recent_posts(1).count).to eq(3)
     end
   end
 end

@@ -18,9 +18,10 @@
   </p>
 </div>
 <div class="form-container"><%= render :partial => 'posts/new' %></div>
-<% @user.posts.each_with_index do |post, index| %>
-<a href="/users/<%= @user.id %>/posts/<%= post.id %>">
-  <div class="posts-container">
+<% if @posts %>
+<% @posts.each_with_index do |post, index| %>
+<a class="link<%= post.id %>" href="/users/<%= @user.id %>/posts/<%= post.id %>">
+  <div class="posts-container posts-container-<%= post.id %>">
     <div class="posts-title-container">
     Post #<%= post.id %>:<br><br>
     <%= post.title %>:<br>
@@ -30,4 +31,5 @@
   </div>
 </a>
 <% end %><br><br>
-<a href="/users/<%= @user.id %>/posts"><div class="see-all-posts-btn"><button>See all Posts</button></div></a>
+<% end %>
+<a href="/users/<%= @user.id %>/posts"><div class="see-all-posts-btn">See all Posts</div></a>
