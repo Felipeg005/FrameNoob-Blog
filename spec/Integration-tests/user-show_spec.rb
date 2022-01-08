@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :feature do
-  describe 'Testing User index view' do
+  describe 'Testing User show view' do
     before(:each) do
       visit '/users/sign_in'
       within("#new_user") do

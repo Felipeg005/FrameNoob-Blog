@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :feature do
-  describe 'Testing User index view' do
+  describe 'Testing Post index view' do
     before(:each) do
       visit '/users/sign_in'
       within("#new_user") do
@@ -56,7 +56,7 @@ RSpec.describe PostsController, type: :feature do
       expect(page).to have_content('comments:')
     end
 
-    it 'checks if see how many comments a post has' do
+    it 'checks if see how many likes a post has' do
       Post.create(id: 1, author_id: 1, title: 'I like rails', text: 'Great framework', comments_counter: 0, likes_counter: 0)
       Comment.create(author_id: '1', post_id: '1', text: 'I like this')
       visit '/users/1/posts/'

@@ -2,6 +2,7 @@
 <a href="/users/<%= User.find(@post.author_id).id %>/posts/"><div class="see-all-posts-btn"><button>Go Back</button></div></a>
 <div class="posts-container">
   <div class="posts-title-container">
+    Author: <%= User.find(@post.author_id).name %><br><br>
     Post #<%= @post.id %>:<br><br>
     Title: <%= @post.title %><br><br>
     <%= @post.text %><br>
