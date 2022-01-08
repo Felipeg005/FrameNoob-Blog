@@ -5,7 +5,6 @@ ruby '3.0.3'
 gem 'devise'
 gem 'jwt'
 gem 'rack-cors'
-gem 'devise'
 gem 'devise-jwt'
 gem 'fast_jsonapi'
 

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  
+
   def new
     @comment = Comment.new
     respond_to do |format|
@@ -18,9 +18,9 @@ class CommentsController < ApplicationController
       respond_to do |format|
         format.json do
           if @comment.save
-            render json: { success: true, data: { comment: @comment.text}, status: :created }
+            render json: { success: true, data: { comment: @comment.text }, status: :created }
           else
-            render json: { success: false, data: { error: "not saved", status: 400 } }
+            render json: { success: false, data: { error: 'not saved', status: 400 } }
           end
         end
         format.html do

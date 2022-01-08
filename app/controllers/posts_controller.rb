@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:post_id])
     User.includes(:posts, :comments)
 
-    @comments = Comment.where(post_id: "#{params[:post_id]}")
+    @comments = Comment.where(post_id: params[:post_id].to_s)
     render json: { success: true, data: { posts: @comments } }
   end
 
