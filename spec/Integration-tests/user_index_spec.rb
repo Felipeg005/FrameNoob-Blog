@@ -4,7 +4,7 @@ RSpec.describe PostsController, type: :feature do
   describe 'Testing User index view' do
     before(:each) do
       visit '/users/sign_in'
-      within("#new_user") do
+      within('#new_user') do
         fill_in 'user_email', with: '1@gmail.com'
         fill_in 'user_password', with: '1234567'
       end
@@ -33,4 +33,3 @@ RSpec.describe PostsController, type: :feature do
     end
   end
 end
-

@@ -4,15 +4,12 @@ RSpec.describe PostsController, type: :feature do
   describe 'Testing Post show view' do
     before(:each) do
       visit '/users/sign_in'
-      within("#new_user") do
+      within('#new_user') do
         fill_in 'user_email', with: '1@gmail.com'
         fill_in 'user_password', with: '1234567'
       end
       click_button 'Log in'
-      5.times do
-        count = 0
-        Post.create(id: count += 1, author_id: 1, title: 'I like rails', text: 'Great framework', comments_counter: 0, likes_counter: 0)
-      end
+      Post.create(id: 1, author_id: 1, title: 'I like rails', text: 'Great framework', comments_counter: 0, likes_counter: 0)
     end
 
     it 'checks if can see the posts title' do
@@ -41,16 +38,15 @@ RSpec.describe PostsController, type: :feature do
     end
 
     it 'checks if can see the username of each commentor' do
-      Comment.create(author_id: '1', post_id: '1', text: 'I like this')
+      Comment.create(id: 1, author_id: '1', post_id: '1', text: 'I like this')
       visit '/users/1/posts/1'
       expect(page).to have_content('Rudolph: I like this // comment #1')
     end
 
     it 'checks if can see the comment each commentor left' do
-      Comment.create(author_id: '1', post_id: '1', text: 'I like this')
+      Comment.create(id: 1, author_id: '1', post_id: '1', text: 'I like this')
       visit '/users/1/posts/1'
       expect(page).to have_content('I like this')
     end
   end
 end
-
